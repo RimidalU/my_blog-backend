@@ -1,4 +1,5 @@
 import express from 'express'
+import jwt from 'jsonwebtoken'
 
 const app = express()
 app.use(express.json())
@@ -8,10 +9,22 @@ app.get('/', (req, res) => {
 })
 
 app.post('/auth/login', (req, res) => {
-  console.log(req.body);
-  res.json({
-    success: true,
-  })
+
+  if (req.body.email === 'test@mail.yep') {
+    const token = jwt.sign({
+      email: req.body.mail,
+      name: 'Test Name'
+    }, '#CryptoKey123')
+
+    res.json({
+      success: true,
+      token
+    })
+  } else {
+    res.json({
+      success: false,
+    })
+  }
 })
 
 app.listen(4000, (err) => {
