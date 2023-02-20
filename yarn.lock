@@ -1175,6 +1175,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"express-validator@npm:^6.15.0":
+  version: 6.15.0
+  resolution: "express-validator@npm:6.15.0"
+  dependencies:
+    lodash: ^4.17.21
+    validator: ^13.9.0
+  checksum: 05c6883c7c4313bed11acd77cf81b3f25516418c27283d897e8f245f9591c11757511430d0c65a073a70fcd85346afd8fb23070a498020809bfe8cbbf62d3772
+  languageName: node
+  linkType: hard
+
 "express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
@@ -1534,6 +1544,7 @@ __metadata:
     "@types/express": ^4.17.17
     dotenv: ^16.0.3
     express: ^4.18.2
+    express-validator: ^6.15.0
     jsonwebtoken: ^9.0.0
     mongoose: ^6.9.2
   languageName: unknown
@@ -1813,6 +1824,13 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
+"validator@npm:^13.9.0":
+  version: 13.9.0
+  resolution: "validator@npm:13.9.0"
+  checksum: e2c936f041f61faa42bafd17c6faddf939498666cd82e88d733621c286893730b008959f4cb12ab3e236148a4f3805c30b85e3dcf5e0efd8b0cbcd36c02bfc0c
   languageName: node
   linkType: hard
 

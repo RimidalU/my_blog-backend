@@ -31,6 +31,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.17"],\
             ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
+            ["express-validator", "npm:6.15.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["mongoose", "npm:6.9.2"]\
           ],\
@@ -1397,6 +1398,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["express-validator", [\
+        ["npm:6.15.0", {\
+          "packageLocation": "./.yarn/cache/express-validator-npm-6.15.0-4293d82a9a-05c6883c7c.zip/node_modules/express-validator/",\
+          "packageDependencies": [\
+            ["express-validator", "npm:6.15.0"],\
+            ["lodash", "npm:4.17.21"],\
+            ["validator", "npm:13.9.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["fast-xml-parser", [\
         ["npm:4.0.11", {\
           "packageLocation": "./.yarn/cache/fast-xml-parser-npm-4.0.11-fb9c5662b0-d8a08e4d55.zip/node_modules/fast-xml-parser/",\
@@ -1760,6 +1772,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:4.17.17"],\
             ["dotenv", "npm:16.0.3"],\
             ["express", "npm:4.18.2"],\
+            ["express-validator", "npm:6.15.0"],\
             ["jsonwebtoken", "npm:9.0.0"],\
             ["mongoose", "npm:6.9.2"]\
           ],\
@@ -2084,6 +2097,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",\
           "packageDependencies": [\
             ["uuid", "npm:8.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["validator", [\
+        ["npm:13.9.0", {\
+          "packageLocation": "./.yarn/cache/validator-npm-13.9.0-54b07e9e81-e2c936f041.zip/node_modules/validator/",\
+          "packageDependencies": [\
+            ["validator", "npm:13.9.0"]\
           ],\
           "linkType": "HARD"\
         }]\
