@@ -7,6 +7,7 @@ import { validationResult } from 'express-validator'
 
 import UserModel from './models/User.js'
 import { registerValidation } from './validations/auth.js'
+import checkAuth from './utils/checkAuth.js'
 
 dotenv.config()
 
@@ -106,6 +107,31 @@ app.post('/auth/login', async (req, res) => {
     res.status(500).json({
       success: false,
       message: `Failed to login user.`,
+      error
+    })
+  }
+})
+
+app.get('/auth/me', checkAuth, async (req, res) => {
+
+  try {
+    const user = await UserModel.findById(req.userId)
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User is not found.'
+      })
+    }
+
+    const { passwordHash, __v, ...userData } = user._doc
+    res.status(200).json({
+      success: true,
+      ...userData
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `Access denied!`,
       error
     })
   }
