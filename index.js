@@ -47,7 +47,7 @@ app.get('/posts', PostController.getAll)
 app.get('/posts/:id', checkAuth, PostController.getOne)
 app.post('/posts', checkAuth, postCreateValidation, PostController.create)
 app.delete('/posts/:id', checkAuth, PostController.remove)
-app.patch('/posts/:id', checkAuth, PostController.update)
+app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update)
 
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
   res.status(200).json({
