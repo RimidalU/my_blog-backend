@@ -3,8 +3,7 @@ import mongoose from 'mongoose'
 import multer from 'multer'
 import * as dotenv from 'dotenv'
 
-import * as UserController from './controllers/UserController.js'
-import * as PostController from './controllers/PostController.js'
+import {UserController, PostController} from './controllers/index.js'
 
 import { registerValidation, loginValidation } from './validations/auth.js'
 import handleValidationErrors from './utils/handleValidationErrors.js'
