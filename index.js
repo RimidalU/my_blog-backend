@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import multer from 'multer'
+import fs from 'fs'
 import * as dotenv from 'dotenv'
 
 import { registerValidation, loginValidation, postCreateValidation } from './validations/index.js'
@@ -13,12 +14,15 @@ mongoose.connect(process.env.MONGODB_CONNECT_LINK)
   .then(() => { console.log('MongoDB connect OK!') })
   .catch((err) => { console.log(`MongoDB connect Error: ${err}`) })
 
-const port = process.env.PORT_OF_SERVER || 3600
+const port = process.env.PORT || 3600
 
 const app = express()
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
+    if (!fs.existsSync('uploads')) {
+      fs.mkdirSync('uploads')
+    }
     cb(null, 'uploads')
   },
   filename: (req, file, cb) => {
