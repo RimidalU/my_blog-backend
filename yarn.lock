@@ -2494,9 +2494,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"my_blog@workspace:.":
+"my_blog-backend@workspace:.":
   version: 0.0.0-use.local
-  resolution: "my_blog@workspace:."
+  resolution: "my_blog-backend@workspace:."
   dependencies:
     "@types/express": ^4.17.17
     "@yarnpkg/plugin-typescript": ^4.0.0-rc.39
