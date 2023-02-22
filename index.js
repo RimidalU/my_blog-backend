@@ -7,9 +7,11 @@ import * as UserController from './controllers/UserController.js'
 import * as PostController from './controllers/PostController.js'
 
 import { registerValidation, loginValidation } from './validations/auth.js'
+import handleValidationErrors from './utils/handleValidationErrors.js'
 import { postCreateValidation } from './validations/post.js'
 
 import checkAuth from './utils/checkAuth.js'
+
 dotenv.config()
 
 mongoose.connect(process.env.MONGODB_CONNECT_LINK)
@@ -39,15 +41,15 @@ app.get('/', (req, res) => {
   res.send('Hello, My Blog!')
 })
 
-app.post('/auth/register', registerValidation, UserController.register)
-app.post('/auth/login', loginValidation, UserController.login)
+app.post('/auth/register', registerValidation, handleValidationErrors, UserController.register)
+app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login)
 app.get('/auth/me', checkAuth, UserController.getMe)
 
 app.get('/posts', PostController.getAll)
 app.get('/posts/:id', checkAuth, PostController.getOne)
-app.post('/posts', checkAuth, postCreateValidation, PostController.create)
+app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, PostController.create)
 app.delete('/posts/:id', checkAuth, PostController.remove)
-app.patch('/posts/:id', checkAuth, postCreateValidation, PostController.update)
+app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update)
 
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
   res.status(200).json({
